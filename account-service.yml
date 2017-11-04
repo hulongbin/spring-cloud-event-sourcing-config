@@ -7,14 +7,14 @@ spring:
 security:
   oauth2:
     resource:
-      userInfoUri: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/user
+      userInfoUri: ${vcap.services.user-service.credentials.uri:http://localhost:8181}/uaa/user172.16.1.229
     client:
       client-id: acme
 ---
 spring:
   profiles: development
   datasource:
-    url: jdbc:mysql://192.168.99.100:3306/dev
+    url: jdbc:mysql://172.16.1.229:3306/dev
     username: root
     password: dbpass
     initialize: false
@@ -36,7 +36,7 @@ spring:
 security:
   oauth2:
     resource:
-      userInfoUri: http://${DOCKER_IP:192.168.99.100}:8181/uaa/user
+      userInfoUri: http://${DOCKER_IP:172.16.1.229}:8181/uaa/user
     client:
       client-id: acme
 eureka:
